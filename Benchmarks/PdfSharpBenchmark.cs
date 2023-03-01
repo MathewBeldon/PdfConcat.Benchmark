@@ -7,11 +7,12 @@ namespace PdfConcat.Benchmark.Benchmarks
     public class PdfSharpBenchmark : IBenchmark
     {
         // Adapted from http://www.pdfsharp.net/wiki/ConcatenateDocuments-sample.ashx
-        public void Run(string[] fileList, int pageCount)
+        public void Run(string[] fileList)
         {
+            using (Stream stream = new MemoryStream())
             using (PdfDocument outputDocument = new())
             {
-                for (int x = 0; x < pageCount; x++)
+                for (int x = 0; x < fileList.Length; x++)
                 {
                     using (var file = FileLoader.Get(fileList[x]))
                     using (var inputDocument = PdfReader.Open(file, PdfDocumentOpenMode.Import))
@@ -22,6 +23,7 @@ namespace PdfConcat.Benchmark.Benchmarks
                         }
                     }
                 }
+                outputDocument.Save(stream);
             }
         }
     }

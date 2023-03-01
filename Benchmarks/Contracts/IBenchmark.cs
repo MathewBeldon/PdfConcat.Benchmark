@@ -2,6 +2,6 @@
 {
     public interface IBenchmark
     {
-        void Run(string[] fileList, int pageCount);
+        void Run(string[] fileList);
     }
 }

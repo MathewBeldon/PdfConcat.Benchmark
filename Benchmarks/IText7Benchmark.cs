@@ -7,7 +7,7 @@ namespace PdfConcat.Benchmark.Benchmarks
     public class IText7Benchmark : IBenchmark
     {
         // Adapted from https://itextpdf.com/demos/merge-pdf-files-for-free-online
-        public void Run(string[] fileList, int pageCount)
+        public void Run(string[] fileList)
         {
             using (Stream stream = new MemoryStream())
             using (var file = FileLoader.Get(fileList[0]))
@@ -15,7 +15,7 @@ namespace PdfConcat.Benchmark.Benchmarks
             {
                 PdfMerger merger = new PdfMerger(pdfDocument);
 
-                for (int i = 1; i < pageCount; i++)
+                for (int i = 1; i < fileList.Length; i++)
                 {
                     using (var appendFile = FileLoader.Get(fileList[i]))
                     using (PdfDocument appendPdfDocument = new PdfDocument(new PdfReader(appendFile)))

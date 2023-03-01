@@ -1,10 +1,4 @@
-﻿
-//foreach (string pic in picList)
-//{
-//    Console.WriteLine(pic);
-//}
-
-using BenchmarkDotNet.Running;
+﻿using BenchmarkDotNet.Running;
 
 namespace PdfConcat.Benchmark
 {
@@ -12,28 +6,31 @@ namespace PdfConcat.Benchmark
     {
         public static void Main()
         {
-            _ = BenchmarkRunner.Run(typeof(Program).Assembly);
+            _ = BenchmarkRunner.Run<BenchmarkHelper>();
         }
     }
 }
 
-////using PdfSharp.Pdf.IO;
-////using PdfSharp.Pdf;
-////using System.Text;
+//using Aspose.Pdf;
+//using PdfConcat.Benchmark;
+//using PdfConcat.Benchmark.Benchmarks;
+//using PdfConcat.Benchmark.Benchmarks.Contracts;
 
-//using iText.Kernel.Pdf;
-//using iText.Kernel.Utils;
+//IBenchmark _iText7Benchmark = new IText7Benchmark();
+//IBenchmark _asposeBenchmark1 = new AsposeBenchmarkAdd();
+//IBenchmark _asposeBenchmark2 = new AsposeBenchmarkConcat();
+//IBenchmark _pdfSharpBenchmark = new PdfSharpBenchmark();
+//IBenchmark _ironPdfMerge = new IronPdfBenchmarkMerge();
+//IBenchmark _ironPdfAppend = new IronPdfBenchmarkAppend();
 
-//string[] picList = Directory.GetFiles(@"files", "*.pdf");
+//BenchmarkHelper bmh = new BenchmarkHelper();
 
-//using (PdfDocument pdfDocument = new PdfDocument(new PdfReader(picList[0]), new PdfWriter(@"C:/source/merged.pdf")))
+//string[] _fileList;
+//_fileList = Directory.GetFiles(@"files", "*.pdf");
+
+//_pdfSharpBenchmark.Run(_fileList);
+
+//for (int i = 0; i < 1000; i++)
 //{
-//    foreach (string pic in picList.Skip(1))
-//    {
-//        using (PdfDocument pdfDocument2 = new PdfDocument(new PdfReader(pic)))
-//        {
-//            PdfMerger merger = new PdfMerger(pdfDocument);
-//            merger.Merge(pdfDocument2, 1, pdfDocument2.GetNumberOfPages());
-//        }
-//    }
+//    File.Copy(@"files/dummy.pdf", @$"files/dummy{i.ToString("000")}.pdf", true);
 //}
