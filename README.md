@@ -27,22 +27,28 @@
 |     'IronPDF Append' |      1000 | 1,031,910.6 us |  81000.0000 |  479870.33 KB |
 
 
-## Diagnostics merging 1000 pdf files
-
+# Diagnostics merging 1000 pdf files
+#### total memory - includes startup time
 ### Aspose `Pages().Add()`
+86MB - 7.7s
 ![Aspose Pages().Add()](Screens/aspose_add.png)
 
 ### Aspose `Concatenate()`
+182MB - 8.5s
 ![Aspose Concatenate()](Screens/aspose_concat.png)
 
 ### iText 7
+88MB - 6.9s
 ![iText 7](Screens/itext.png)
 
 ### PdfSharp
+52MB - 6.5s
 ![pdfSharp](Screens/pdf_sharp.png)
 
 ### IronPdf `Merge()`
+463MB - 9:40 min :eyes:
 ![IronPdf Merge()](Screens/iron_pdf_merge.png)
 
 ### IronPdf `AppendPdf()`
+71MB - 8s
 ![IronPdf AppendPdf()](Screens/iron_pdf_append.png)
